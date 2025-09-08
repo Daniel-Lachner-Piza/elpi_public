@@ -443,6 +443,7 @@ Each annotation contains:
 - Close unnecessary applications
 - Reduce number of displayed channels
 - Lower filter orders if needed
+- Elpi runs extremely slow on Matlab 2025, stick to Matlab2023a or Matlab2023b and performance should be fine
 
 ### Error Messages
 
