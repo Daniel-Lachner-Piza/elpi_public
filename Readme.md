@@ -47,8 +47,9 @@ ELPI (EEG Labeling and Processing Interface) is a MATLAB-based application desig
 
 ### 1. Launch ELPI
 
-1. Run the elpi.exe
-2. Chech Display settings, Zoom should be set to 100%, (not more!), otherwise the wiindows will not scale correctly
+1. Download elpi_public folder
+2. Run the elpi.exe
+3. Chech Display settings, Zoom should be set to 100%, (not more!), otherwise the wiindows will not scale correctly
 
 ### 2. Load EEG Data
 
