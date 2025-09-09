@@ -20,13 +20,13 @@
 
 ## Overview
 
-ELPI (EEG Labeling and Processing Interface) is a MATLAB-based application designed for informed EEG signal analysis and annotation. The system supports both scalp and intracranial EEG recordings and provides advanced tools for signal visualization, filtering, event detection, and annotation management.
+ELPI is a MATLAB-based application designed for informed EEG signal analysis and annotation of events. The system supports both scalp and intracranial EEG recordings and provides tools for signal visualization, filtering, event detection, and annotation management.
 
 ### Key Capabilities:
 - Multi-format EEG file support (EDF, LAY, BrainVision, Micromed files) (Fieldtrip supported!)
-- Interactive EEG visualization with multiple time scales
-- Advanced filtering and signal processing
-- Interactive event annotation
+- Simultaneous visualization of Raw, Filtered and Time-Frequency transformed EEG with multiple time scales
+- Customizable FIR filters
+- Interactive event annotation and editing
 - Noise analysis
 - Occurrence rate reporting
 - Data export capabilities
@@ -49,7 +49,7 @@ ELPI (EEG Labeling and Processing Interface) is a MATLAB-based application desig
 
 1. Download elpi_public folder
 2. Run the elpi.exe
-3. Chech Display settings, Zoom should be set to 100%, (not more!), otherwise the wiindows will not scale correctly
+3. Check Display settings, Zoom should be set to 100%, (not more!), otherwise the windows will not scale correctly
 
 ### 2. Load EEG Data
 
@@ -91,6 +91,7 @@ Set parameters for time-frequency analysis:
 - **Max Frequency**: Upper bound for spectrogram (default: 500 Hz)
 - **Steps**: Frequency resolution
 
+---
 ## Core Features
 
 ### 1. Multi-Panel Display System
@@ -102,153 +103,93 @@ Set parameters for time-frequency analysis:
 - Configurable time window (default: 10 seconds)
 - Navigation and channel selection
 - Annotation overlay display
+- Select signals to display in Small Window
+- Rotate through filters independently from other windows
 
 #### Small Window (Middle Panel)
 - Zoomed view of selected channel
 - Higher temporal resolution (default: 1 second)
 - Detailed signal examination
 - Precise annotation placement
+- Select signals to display in Spectrogram window
+- Rotate through filters independently from other windows
 
 #### Heatmap/Spectrogram (Bottom Panel)
 - Time-frequency representation
 - Wavelet-based analysis
 - Frequency range: configurable (60-500 Hz default)
 - Color-coded power representation
+- Rotate through filters independently from other windows
 
 ### 2. Navigation System
 
 **Horizontal Navigation:**
-- Left/Right arrow keys: Navigate through time
+- Left/Right arrow keys: Navigate through time at a speed of the window length
+- Shift + Left/Right arrow keys: Navigate through time at a speed of 1/10 the window length
+- Mouse Scroll wheel: Navigate through time at a speed of 1/10 the window length
 
 **Vertical Navigation:**
 - Up/Down arrow keys: adjust sensitivity
 
 **Window Controls:**
-- Sliders for adjusting window position
-- Window length adjustment controls
+- Button at lower left corner rotates through window selection
 
-## Typical Workflow
+### 3. Annotation of Events
+#### 3.1 New annotations
+- Enable/Disable annotation mode using Marking On/Off button at top right corner
+- Draw annotation on EEG:
+   - Press "s" key and draw mark: introduced mark is channel specific
+   - Press "a" key and draw mark: introduced mark is channel agnostic
 
-### Step 1: Load and Configure EEG
+#### 3.2 Saving annotations   
+- Autosave annotations can be turned on/off. After 50 annotations, the user is asked to save the events to a file.
+- To manually save annotations, go to: 
+   → Annotations Menu → Save to file
 
-1. **Launch ELPI**
+#### 3.3 Editing annotations
+- Annotations can be clicked, a window will pop up with editable information
+- To remove all annotations in current Big Window:
+   - Press "r" key and follow instructions
 
-2. **Load EEG File**
-   - Click "Open EEG File"
-   - Navigate to your EEG file (e.g.: .edf )
-   - Wait for file loading and processing
+#### 3.4 Customizing annotation types and colors
+- In the Annotations Menu:
+   → Settings → Select Type to Mark
 
-3. **Configure Settings**
-   - Select EEG type (Scalp/Intracranial)
-   - Choose appropriate montage
-   - Select channels to display
-   - Configure filter settings
-   - Set wavelet analysis parameters
+#### 3.4 Traversing annotations
+- In the Annotations Menu:
+   → Show list
+- A window will pop-up with all annotations. Select an annotatio either with the keyboard or mouse 
+- The selected annotation will be highlighted on the EEG windows
+   - To change the highlight mode to show all signals on the small window:
+      → Settings → Traverse Style
+- Annotations can be selected using list. Select a row and press the "Del" key on the keyboard
+- The last deletion can be undone by clicking on the "Undo" button at the bottom right of the list 
 
-4. **Start EEG Reviewer**
-   - Click "Start EEG Reviewer" button
-   - Main annotation interface will open
+### 4 Analysis and Export
 
-### Step 2: Navigate and Examine Signals
-
-1. **Initial View**
-   - Big window shows overview of multiple channels
-   - Small window shows detailed view of selected channel
-      - To select channel simply click on the label or on the signal
-   - Heatmap shows time-frequency content
-
-2. **Navigation**
-   - Use arrow keys to move through time
-   - Click on channels in big window to select for detailed view
-   - Use sliders for quick navigation
-   - Check noise index indicators for data quality
-
-3. **Adjust Display**
-   - Use filter buttons to rotate through the filters
-   - Adjust window lengths as needed
-   - Toggle channel visibility with button
-
-### Step 3: Annotate Events
-
-1. **Select Annotation Type**
-   - Go to Annotations → Select type to mark
-   - Choose from: HFO, Ripple, FR, IED, Spindle, Noise, Bad
-   - Add annotation types if needed
-
-2. **Mark Events**
-   - Click and drag on the signal to create annotations
-   - Use right-click for additional options
-   - Events automatically saved with timestamps
-
-3. **Edit Annotations**
-   - Activate annotation mode by clicking on button
-   - For single channel annotations:
-      - Press s key
-      - Draw rectangle around the signal where you want to place your annotation
-   - For multi-channel annotations:
-      - Press a key
-      - Draw rectangle around the signal where you want to place your annotation 
-   - Double-click existing annotations to edit
-   - Modify start/end times, type, or comments
-   - Add multi-channel annotations as needed
-
-4. **Review Annotations**
-   - Go to Annotations → Show List to view all events
-   - Navigate between events using Up/Down keys
-
-### Step 4: Quality Assessment
-
-1. **Monitor Noise Index**
-   - Check real-time noise indicators
-   - View noise map for overall recording quality
-   - Identify problematic segments
-
-2. **Mark Bad Segments**
-   - Go to Segments → Edit Bad Segments
-   - Mark periods of poor signal quality
-   - Exclude from analysis and reports
-
-### Step 5: Analysis and Export
-
-1. **Generate Reports**
+4.1. **Generate Reports**
    - Go to Reports → Occurrence Rate
    - Export results to files
 
-2. **Export Data**
+4.2. **Export Data**
    - Save annotations to file formats
    - Export EDF clips of interesting segments
    - Save processed signals
 
-## Visual Interface Components
+### 5 Noise Analysis
 
-### Menu System
+5.1 **Real-Time Quality Assessment:**
+- Continuous noise index calculation
+- Channel-specific quality metrics
+- Overall recording quality assessment
+- Visual quality mapping
 
-**File Menu:**
-- Open: Load EEG files
-- Export: Save current EEG segment as EDF
+5.2 **Quality Indicators:**
+- Green: Good signal quality (NI < 0.1)
+- Red: Poor signal quality (NI > 0.1)
+- Real-time updating during review
 
-**Channels Menu:**
-- Channel selector with filtering options
-- Multi-channel selection capabilities
-
-**Annotations Menu:**
-- Settings: Configure annotation types and colors
-- Traverse Style: when navigating through events list, show all channels or just the one channel with the event
-- Select type to mark: Choose annotation category
-- Select type to show: Filter displayed annotations
-- Load/Save: Import/export annotation files
-- Show List: View all annotations in tabular format
-- Clear All: Remove all annotations
-
-**Segments Menu:**
-- Edit Bad Segments: Mark poor quality periods
-
-**Reports Menu:**
-- Occurrence Rate: Generate statistical reports
-
-**Filters Menu:**
-- Notch: Configure power line noise filtering
-- NoiseMap: Display signal quality assessment
+---
 
 ### Control Elements
 
@@ -289,28 +230,9 @@ Each annotation contains:
 - **Creation Time**: Timestamp of annotation
 - **Username**: Annotator identification
 
-### Annotation Workflow
-
-1. **Enable Marking Mode**
-   - Marking mode lamp indicates active state
-
-2. **Create Annotations**
-   - Click and drag on signal in either panel
-   - Release to complete annotation
-   - Automatic time calculation and sample conversion
-
-3. **Edit Existing Annotations**
-   - Double-click on annotation
-   - Event Editor opens with all properties
-   - Modify times, type, comments, etc.
-
-4. **Navigation Between Events**
-   - Use annotation traversing functions
-   - Jump to next/previous events of selected type
-
 ### Annotation File Formats
 
-**Supported Import/Export:**
+**Supported Import:**
 - MATLAB .mat files
 - ELPI native format with full metadata
 - LAY file integration for Persyst compatibility
@@ -355,85 +277,13 @@ Each annotation contains:
 - Frequency content analysis
 - Time-frequency event characterization
 
-## Detection and Analysis Tools
-
-### Noise Analysis
-
-**Real-Time Quality Assessment:**
-- Continuous noise index calculation
-- Channel-specific quality metrics
-- Overall recording quality assessment
-- Visual quality mapping
-
-**Quality Indicators:**
-- Green: Good signal quality (NI < 0.1)
-- Red: Poor signal quality (NI > 0.1)
-- Real-time updating during review
-
-## Data Export and Import
-
-### EEG File Export
-
-**EDF Export:**
-- Extract specific time segments
-- Maintain original signal characteristics
-- Configurable start/end times
-- Clinical-grade format compliance
-
-### Annotation Export
-
-**Format Options:**
-- MATLAB .mat files with full metadata
-- LAY file integration
-- CSV export for statistical analysis
-- Custom format definitions
-
-### Batch Processing
-
-**Capabilities:**
-- Multiple file processing
-- Automated annotation detection
-- Batch quality assessment
-- Report generation
-
-## Quality Assessment
-
-### Noise Index System
-
-**Real-Time Monitoring:**
-- Spectral analysis-based quality metrics
-- Channel-specific noise assessment
-- Temporal quality tracking
-- Visual feedback system
-
-**Quality Metrics:**
-- Overall recording noise index
-- Current window noise index
-- Channel-specific quality indicators
-- Bad segment identification
-
-### Noise Map
-
-**Visualization:**
-- Time-based quality representation
-- Color-coded quality levels
-- Interactive navigation
-- Pattern recognition for artifacts
-
-## Other Features
-
-### Automation Features
-
-**Auto-save Functionality:**
-- Configurable batch sizes (default: 50 annotations)
-- Automatic backup creation
-- Recovery mechanisms
-- Progress tracking
-
-
 ## Troubleshooting
 
 ### Common Issues
+
+**Pop-up windows dissapearing:**
+- Pop-up Windows will be sent to the background when interacting with the main window. To 
+bring the pop-up windows to the foreground again use the Ctrl+Tab shortcut
 
 **Buttons not visible, Window not scaling correctly:**
 - Set display zoom level to 100%
@@ -459,5 +309,5 @@ Each annotation contains:
 
 ---
 
-*Version: 2025.1*
+*Version: 2025.2*
 *Last Updated: September 2025*
