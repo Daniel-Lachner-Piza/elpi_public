@@ -1,4 +1,4 @@
-# ELPI (EEG Labeling and Processing Interface) User's Guide
+# ELPI User's Guide
 
 ## Table of Contents
 
