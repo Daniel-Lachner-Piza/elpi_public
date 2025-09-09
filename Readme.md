@@ -99,6 +99,7 @@ Set parameters for time-frequency analysis:
 
 ---
 ## Core Features
+![ELPI Example](Images/Annotations_Table.png)
 
 ### 1. Multi-Panel Display System
 
@@ -162,7 +163,6 @@ Set parameters for time-frequency analysis:
    → Settings → Select Type to Mark
 
 #### 3.4 Traversing annotations
-![ELPI Example](Images/Annotations_Table.png)
 - In the Annotations Menu:
    → Show list
 - A window will pop-up with all annotations. Select an annotatio either with the keyboard or mouse 
