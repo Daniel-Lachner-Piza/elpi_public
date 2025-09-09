@@ -1,3 +1,9 @@
+![ELPI Example](Images/Elpi_1.png)
+<iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/Btu8JNsjG5c" 
+        frameborder="0" 
+        allowfullscreen>
+</iframe>
 # ELPI User's Guide
 
 ## Table of Contents
@@ -20,10 +26,10 @@
 
 ## Overview
 
-ELPI is a MATLAB-based application designed for informed EEG signal analysis and annotation of events. The system supports both scalp and intracranial EEG recordings and provides tools for signal visualization, filtering, event detection, and annotation management.
+ELPI is a MATLAB-based application designed for informed EEG signal analysis and annotation of events. The system supports both scalp and intracranial EEG recordings and provides tools for signal visualization, filtering and event annotation.
 
 ### Key Capabilities:
-- Multi-format EEG file support (EDF, LAY, BrainVision, Micromed files) (Fieldtrip supported!)
+- Multi-format EEG file support (EDF, LAY, BrainVision, Micromed files) (Enabled by Fieldtrip)
 - Simultaneous visualization of Raw, Filtered and Time-Frequency transformed EEG with multiple time scales
 - Customizable FIR filters
 - Interactive event annotation and editing
@@ -32,7 +38,7 @@ ELPI is a MATLAB-based application designed for informed EEG signal analysis and
 - Data export capabilities
 
 ## System Requirements
-
+![Matlab](Images/Matlab.jpg)
 - MATLAB R2023b:
     - Computer Vision Toolbox
     - Image Processing Toolbox
@@ -44,6 +50,7 @@ ELPI is a MATLAB-based application designed for informed EEG signal analysis and
 - Compatible EEG file formats: EDF, EDF+, LAYDAT, VHDR, TRC
 
 ## Getting Started
+![File Selection](Images/1_File_Select.png)
 
 ### 1. Launch ELPI
 
@@ -52,7 +59,6 @@ ELPI is a MATLAB-based application designed for informed EEG signal analysis and
 3. Check Display settings, Zoom should be set to 100%, (not more!), otherwise the windows will not scale correctly
 
 ### 2. Load EEG Data
-
 1. Click **"Open EEG File"** in the main settings window
 2. Select your EEG file (e.g.: .edf, .lay, .vhdr)
 3. The system will automatically detect sampling rate and channel configuration
