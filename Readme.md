@@ -1,10 +1,6 @@
-![ELPI Example](Images/Elpi_1.png)
-<iframe width="560" height="315" 
-        src="https://www.youtube.com/embed/Btu8JNsjG5c" 
-        frameborder="0" 
-        allowfullscreen>
-</iframe>
 # ELPI User's Guide
+[![Video Title](https://img.youtube.com/vi/Btu8JNsjG5c/maxresdefault.jpg)](https://www.youtube.com/watch?v=Btu8JNsjG5c)
+
 
 ## Table of Contents
 
@@ -162,6 +158,7 @@ Set parameters for time-frequency analysis:
    → Settings → Select Type to Mark
 
 #### 3.4 Traversing annotations
+![ELPI Example](Images/Annotations_Table.png)
 - In the Annotations Menu:
    → Show list
 - A window will pop-up with all annotations. Select an annotatio either with the keyboard or mouse 
