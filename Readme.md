@@ -1,5 +1,7 @@
 # ELPI User's Guide
 
+![Matlab](Images/Elpi_Poster.png)
+
 **Youtube Video:**<br>
 <a href="https://www.youtube.com/watch?v=Btu8JNsjG5c">
   <img src="https://img.youtube.com/vi/Btu8JNsjG5c/maxresdefault.jpg" width="400" height="225" alt="ELPI Tutorial Video">
@@ -184,12 +186,14 @@ Set parameters for time-frequency analysis:
    - Save processed signals
 
 ### 5 Noise Analysis
+![Noise Index EEG](Images/Noise_Index_1.png)
+![Noise Index Heatmap](Images/Noise_Index_2.png)
 
-5.1 **Real-Time Quality Assessment:**
-- Continuous noise index calculation
-- Channel-specific quality metrics
+5.1 **Synchronized EEG and Noise-Index Heatmap:**
+- Noise index calculation based on deviation from ideal spectral power decay
+- Channel-specific noise-index metric
 - Overall recording quality assessment
-- Visual quality mapping
+- Noise-Index Heatmap is clickable and synchronized with EEG
 
 5.2 **Quality Indicators:**
 - Green: Good signal quality (NI < 0.1)
