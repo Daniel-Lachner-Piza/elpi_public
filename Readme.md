@@ -1,12 +1,10 @@
+<center>
+
 # ELPI User's Guide
 
+</center>
+
 ![Matlab](Images/Elpi_Poster.png)
-
-**Youtube Video:**<br>
-<a href="https://www.youtube.com/watch?v=Btu8JNsjG5c">
-  <img src="https://img.youtube.com/vi/Btu8JNsjG5c/maxresdefault.jpg" width="400" height="225" alt="ELPI Tutorial Video">
-</a>
-
 
 ## Table of Contents
 
@@ -38,6 +36,11 @@ ELPI is a MATLAB-based application designed for informed EEG signal analysis and
 - Noise analysis
 - Occurrence rate reporting
 - Data export capabilities
+
+**Youtube Video:**<br>
+<a href="https://www.youtube.com/watch?v=Btu8JNsjG5c">
+  <img src="https://img.youtube.com/vi/Btu8JNsjG5c/maxresdefault.jpg" width="400" height="225" alt="ELPI Tutorial Video">
+</a>
 
 ## System Requirements
 ![Matlab](Images/Matlab.jpg)
